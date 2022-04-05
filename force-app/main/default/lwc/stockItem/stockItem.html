@@ -1,0 +1,71 @@
+<template>
+    <div class="slds-card">
+        <!-- Header -->
+        <div class="slds-card__header slds-grid slds-grid_vertical">
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                    <div class="slds-col">
+                    <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                        <img alt={stock.Ticker} src={stock.Url} title={stock.Ticker} />
+                    </span>
+                    </div>
+                    <div class="slds-col slds-p-left_small">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col slds-text-heading_small text__bold">
+                                {stock.CompanyName}
+                            </div>
+                            <div class="slds-col slds-text-body_small">
+                                {stock.Ticker} - {stock.Market}.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-p-top_small">
+                <div class="slds-grid slds-grid slds-grid_align-spread">
+                    <div class="slds-col slds-text-body_regular text__bold color__brand">
+                        {stock.Value} {stock.Currency}
+                    </div>
+                    <div class="slds-col slds-text-body_regular text__bold flex__container">
+                        {stock.Difference} {stock.Percentage}
+                        <!-- Icons Up/Down -->
+                        <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-m-left_xx-small color__brand" title="Description of icon when needed">
+                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                <template if:false= {loaded}>
+                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#up"></use>
+                                </template>
+                                <template if:true= {loaded}>
+                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                </template>
+                            </svg>
+                            <span class="slds-assistive-text">Description of icon when needed</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="slds-card__footer slds-grid slds-wrap">
+            <!-- Grid -->
+            <template for:each={columns} for:item="column">
+                <div key={column.Id} class="slds-col slds-size_1-of-2 slds-p-around_xx-small">
+                    <div class="slds-grid slds-grid_vertical">
+                        <div class="slds-col slds-text-body_small">
+                            {column.label}
+                        </div>
+                        <div class="slds-col slds-text-body_small text__bold">
+                            {column.value}
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <!-- Chart -->
+            <canvas></canvas>
+            <hr>
+        </footer>
+        <!-- Spinner -->
+        <template if:false={loaded}>
+            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+    </div>
+</template>

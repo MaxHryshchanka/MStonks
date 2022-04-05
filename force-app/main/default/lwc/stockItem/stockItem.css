@@ -1,0 +1,33 @@
+:host {
+    --sds-c-card-radius-border: 1rem;
+    --sds-c-card-footer-text-align: start;
+}
+
+
+.slds-card {
+    min-height: 20rem;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+.slds-card:hover {
+    transform: scale(1.02);
+}
+
+.text__bold {
+    font-weight: bold
+}
+
+.color__brand {
+    color: #0176d3;
+}
+
+.flex__container {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<template>
+    <a href={news.Url} target="_blank" rel="noopener noreferrer">
+        <div class="slds-card">
+            <!-- Header -->
+            <div class="slds-card__header image_container">
+                <img src={news.Image}>
+            </div>
+            <!-- Body -->
+            <div class="slds-card__body slds-card__body_inner">
+                <div class="slds-grid slds-grid_vertical">
+                    <span class="slds-col slds-p-around_x-small span__date">
+                        {news.ShortPublishedAt}
+                    </span>
+                    <span class="slds-col slds-p-around_x-small span__title">
+                        {news.Title}
+                    </span>
+                    <span class="slds-col slds-p-around_x-small slds-text-body_small span__description">
+                        {news.Description}
+                    </span>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div class="slds-card__footer">
+                {news.Author}
+            </div>
+        </div>
+    </a>
+</template>

@@ -1,0 +1,21 @@
+<template>
+    <header class="header slds-p-around_medium">
+        <template if:true={isLoaded}>
+            <h1 class="logo_container">
+                <a href="#">
+                    MaxStonks
+                </a>
+            </h1>
+            <ul class="link_container">
+                <template for:each={menuItems} for:item="item">
+                    <li key={item.id} class="slds-p-around_small">
+                        <c-navigation-menu-item item={item}></c-navigation-menu-item>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:false={isLoaded}>
+            <lightning-spinner variant="brand"></lightning-spinner>
+        </template>
+    </header>
+</template>

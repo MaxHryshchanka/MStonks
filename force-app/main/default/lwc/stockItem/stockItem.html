@@ -6,7 +6,7 @@
                 <div class="slds-grid slds-grid_vertical-align-center">
                     <div class="slds-col">
                     <span class="slds-avatar slds-avatar_circle slds-avatar_large">
-                        <img alt={stock.Ticker} src={stock.Url} title={stock.Ticker} />
+                        <img alt={stock.Name} src={stock.Logo} title={stock.Name} />
                     </span>
                     </div>
                     <div class="slds-col slds-p-left_small">
@@ -15,7 +15,7 @@
                                 {stock.CompanyName}
                             </div>
                             <div class="slds-col slds-text-body_small">
-                                {stock.Ticker} - {stock.Market}.
+                                {stock.Name} - {stock.Exchange}.
                             </div>
                         </div>
                     </div>
@@ -24,22 +24,23 @@
             <div class="slds-col slds-p-top_small">
                 <div class="slds-grid slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-text-body_regular text__bold color__brand">
-                        {stock.Value} {stock.Currency}
+                        {stock.Close} {stock.CurrencyCode}
                     </div>
                     <div class="slds-col slds-text-body_regular text__bold flex__container">
-                        {stock.Difference} {stock.Percentage}
-                        <!-- Icons Up/Down -->
-                        <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-m-left_xx-small color__brand" title="Description of icon when needed">
-                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
-                                <template if:false= {loaded}>
-                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#up"></use>
-                                </template>
-                                <template if:true= {loaded}>
-                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                                </template>
-                            </svg>
-                            <span class="slds-assistive-text">Description of icon when needed</span>
-                        </span>
+                        <template if:true={isStockInit}>
+                            {stockChange} {stockChangePercent}
+                            <!-- Icons Up/Down -->
+                            <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-m-left_xx-small">
+                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                    <template if:true={ifStockPositive}>
+                                        <use class="color__brand" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#up"></use>
+                                    </template>
+                                    <template if:false={ifStockPositive}>
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                    </template>
+                                </svg>
+                            </span>
+                        </template>
                     </div>
                 </div>
             </div>

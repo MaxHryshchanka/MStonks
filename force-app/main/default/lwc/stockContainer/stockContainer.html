@@ -1,9 +1,20 @@
 <template>
     <div class="slds-grid slds-wrap slds-grid_align-space stock_container">
         <template for:each={stocks} for:item="stock">
-            <ul key={stock.Id} class="slds-col slds-p-around_small slds-small-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4">
+            <ul key={stock.Id} data-name={stock.Name} data-company={stock.CompanyName} class="slds-col slds-p-around_small slds-small-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4">
                 <c-stock-item stock={stock}></c-stock-item>
             </ul>
         </template>
     </div>
+    <c-stock-filter onfilter={handleFilter}></c-stock-filter>
+    <template if:false={isOneActive}>
+        <div class="empty_container">
+            <span>
+                Sorry, that filter combination has no results.
+            </span>
+            <span>
+                Please try different criteria.
+            </span>
+        </div>
+    </template>
 </template>

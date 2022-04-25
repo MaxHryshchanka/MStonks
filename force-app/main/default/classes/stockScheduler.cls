@@ -2,7 +2,10 @@ public class stockScheduler implements Schedulable {
     private final Integer SCOPE_SIZE = 4;
     private final String JOB_NAME = 'Batch Stocks Update';
     private final List<String> STOCK_NAMES = new List<String>{
-            'AAPL', 'MSFT', 'AMZN', 'TSLA', 'NVDA'
+            'AAPL', 'MSFT', 'AMZN', 'TSLA',
+            'NVDA', 'V', 'MA', 'CRM',
+            'ORCL', 'MCD', 'ZM', 'SBUX',
+            'AMD', 'NFLX', 'TWTR', 'DIS'
     };
 
     public void execute(SchedulableContext SC) {

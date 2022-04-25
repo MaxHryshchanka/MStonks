@@ -1,0 +1,46 @@
+:host {
+    --sds-c-input-radius-border: .5rem;
+}
+
+.filter_container {
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 4.5rem;
+
+    margin-right: -20.1rem;
+    transition: .5s;
+}
+
+.filter_container:hover, filter_container:focus {
+    transform: translateX(-20rem);
+}
+
+.filter_settings {
+    width: 20rem;
+    height: 15.7rem;
+    background: #EFF0F2;
+    border-radius: 0 0 0 1rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;}
+
+.filter_pointer {
+    height: 5rem;
+    width: 3rem;
+    border-radius: 2.5rem 0 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: #0176d3;
+    background: #EFF0F2;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+span {
+    font-weight: bold;
+    color: #0176d3;
+    font-size: larger;
+}
+
+lightning-input {
+    display: grid;
+}

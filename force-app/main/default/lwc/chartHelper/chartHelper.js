@@ -1,19 +1,15 @@
-const getRandomInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
+const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-const getConfigStockChart = (data, background) => {
-    let minY = Math.min.apply(Math, data) - 1;
+const getConfigStockChart = (values, labels, background) => {
+    let minY = Math.min.apply(Math, values) - 1;
 
     return {
         type: 'line',
         data: {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            labels: labels,
             datasets: [{
-                label: '# of Votes',
-                data: data,
+                label: 'Close Price',
+                data: values,
                 tension: 0.4,
                 fill: true,
                 borderColor: '#36A2EB',
@@ -47,4 +43,4 @@ const getConfigStockChart = (data, background) => {
     };
 }
 
-export {getConfigStockChart, getRandomInt}
+export {getConfigStockChart, DAY_LABELS}

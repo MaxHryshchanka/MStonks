@@ -68,11 +68,9 @@ export default class navigationMenu extends LightningElement {
         let scrollTop = window.pageYOffset || event.target.scrollTop;
         if (scrollTop > this.lastScrollTop) {
             this.template.querySelector('.header').classList.add('scroll_up')
-            console.log('1');
         }
         else {
             this.template.querySelector('.header').classList.remove('scroll_up')
-            console.log('2');
         }
         this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }

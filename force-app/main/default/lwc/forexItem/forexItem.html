@@ -1,0 +1,24 @@
+<template>
+    <!-- Icons Up/Down -->
+    <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-p-around_xx-small">
+        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <template if:true={ifForexPositive}>
+                <use class="color__brand" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#up"></use>
+            </template>
+            <template if:false={ifForexPositive}>
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+            </template>
+        </svg>
+        <span class="slds-assistive-text">Description of icon when needed</span>
+    </span>
+
+    <span class="slds-p-around_xx-small slds-text-title_bold">
+        {forex.Name}
+    </span>
+    <span class="slds-p-around_xx-small slds-text-title_bold">
+        {forexChangePercent}
+    </span>
+    <span class="slds-p-around_xx-small slds-text-title_bold">
+        {forexClose}
+    </span>
+</template>

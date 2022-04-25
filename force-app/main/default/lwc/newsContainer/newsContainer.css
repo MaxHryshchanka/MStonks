@@ -1,4 +1,6 @@
 .news_container {
+    padding-top: 4rem;
+    padding-bottom: 2.75rem;
     display: flex;
     width: 100%;
     flex-direction: column;

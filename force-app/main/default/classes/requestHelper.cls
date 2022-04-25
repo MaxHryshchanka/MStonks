@@ -133,6 +133,28 @@ public with sharing class requestHelper {
         Database.insertImmediate(news);
     }
 
+    public static Forex__c requestForex(String apiKey, String forexName) {
+        Forex__c forex = new Forex__c();
+
+        if (apiKey != null) {
+            Http http = new Http();
+            HttpRequest request = new HttpRequest();
+            request.setMethod(HTTP_GET);
+            request.setEndpoint(END_QUOTE_TWELVE_API + forexName + END_APIKEY + apiKey);
+            HttpResponse response = http.send(request);
+
+            if (response.getStatusCode() == 200) {
+                forexWrapper jsonResult = (forexWrapper) JSON.deserialize(response.getBody(), forexWrapper.class);
+
+                forex.Name = forexName;
+                forex.Close__c = Decimal.valueOf(jsonResult.close);
+                forex.Change_Percent__c = Decimal.valueOf(jsonResult.percent_change);
+            }
+        }
+
+        return forex;
+    }
+
     public static String getApiKey(String name) {
         for (Api_Settings__c s : [
                 SELECT Key__c

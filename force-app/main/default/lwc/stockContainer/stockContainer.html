@@ -1,5 +1,5 @@
 <template>
-    <div class="slds-grid slds-wrap slds-grid_align-space">
+    <div class="slds-grid slds-wrap slds-grid_align-space stock_container">
         <template for:each={stocks} for:item="stock">
             <ul key={stock.Id} class="slds-col slds-p-around_small slds-small-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4">
                 <c-stock-item stock={stock}></c-stock-item>

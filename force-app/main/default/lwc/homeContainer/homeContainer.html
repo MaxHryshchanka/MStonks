@@ -1,0 +1,14 @@
+<template>
+    <div>
+        <div class="banner_container">
+            <span class="banner_span span__title">Start Your Analysis Here</span>
+            <span class="banner_span span__subtitle">See stock prices, news, forex, forecasts, charts and more.</span>
+            <button class="slds-button slds-button_brand slds-m-top_medium" onclick={handleClick}>Sign Up Free</button>
+        </div>
+        <div class="tile_container slds-p-top_xx-large">
+            <template for:each={items} for:item="item">
+                <c-home-item key={item.Id} item={item}></c-home-item>
+            </template>
+        </div>
+    </div>
+</template>

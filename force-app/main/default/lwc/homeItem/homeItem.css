@@ -1,0 +1,37 @@
+.tile {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+    justify-content: space-between;
+    transition: color .2s;
+}
+
+.tile span {
+    font-weight: bold;
+    font-size: x-large;
+    font-style: italic;
+}
+
+.tile p {
+    width: 75%;
+    font-weight: bolder;
+    opacity: 0.85;
+}
+
+.slds-icon_container {
+    opacity: 0.8;
+}
+
+.tile:hover {
+    color: #0176d3;
+    cursor: pointer;
+}
+
+.text_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

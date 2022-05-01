@@ -1,0 +1,59 @@
+.slds-card__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+.slds-card__body {
+    width: 69.4vw;
+    height: 34.7vw;
+}
+
+.slds-card__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -2rem;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.button_container {
+    display: flex;
+    align-items: center;
+}
+
+.header_container {
+    display: flex;
+}
+
+.span_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.price_container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.span_company_name {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.span_exchange {
+    font-size: small;
+    font-weight: lighter;
+}
+
+.color__brand {
+    color: #0176d3;
+}
+
+.change_container {
+    font-weight: bold;
+    opacity: 0.9;
+    font-size: small;
+}

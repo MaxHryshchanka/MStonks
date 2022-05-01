@@ -7,6 +7,7 @@ public with sharing class requestHelper {
     private static String END_LOGO_TWELVE_API = 'https://api.twelvedata.com/logo?symbol=';
 
     private static String END_INTERVAL = '&interval=';
+    private static String END_OUTPUTSIZE = '&outputsize=100';
     private static String END_TIMESERIES_TWELVE_API = 'https://api.twelvedata.com/time_series?symbol=';
     private static List<String> TIMESERIES_INTERVALS = new List<String>{ '1day', '1week', '1month' };
 
@@ -75,7 +76,7 @@ public with sharing class requestHelper {
             request.setMethod(HTTP_GET);
 
             for (String interval : TIMESERIES_INTERVALS) {
-                request.setEndpoint(END_TIMESERIES_TWELVE_API + stockName + END_INTERVAL + interval + END_APIKEY + apiKey);
+                request.setEndpoint(END_TIMESERIES_TWELVE_API + stockName + END_INTERVAL + interval + + END_OUTPUTSIZE + END_APIKEY + apiKey);
                 System.debug(END_TIMESERIES_TWELVE_API + stockName + END_INTERVAL + interval + END_APIKEY + apiKey);
                 HttpResponse response = http.send(request);
 

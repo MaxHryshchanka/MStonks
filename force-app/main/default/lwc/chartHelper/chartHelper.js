@@ -180,7 +180,8 @@ const getConfigPortfolioVolumeChart = (labels, dataBars, barBorderColors, barBac
                 y: {
                     ticks: {
                         callback: function (value, index, ticks) {
-                            return value / 1000000 + 'm';
+                            let val = value / 1000000
+                            return val < 0.00001 ? '0m' : val + 'm';
                         }
                     }
                 }

@@ -8,6 +8,13 @@
 .slds-card__body {
     width: 69.4vw;
     height: 34.7vw;
+    margin-top: 0;
+}
+
+.slds-avatar {
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px;
+    min-height: 3rem;
+    min-width: 3rem;
 }
 
 .slds-card__footer {
@@ -16,6 +23,7 @@
     margin-bottom: -2rem;
     padding-right: 0;
     padding-left: 0;
+    margin-top: 0;
 }
 
 .button_container {
@@ -57,3 +65,11 @@
     opacity: 0.9;
     font-size: small;
 }
+
+@media screen and (max-width: 1024px) {
+    .slds-card__body {
+        width: 90vw;
+        height: 45vw;
+    }
+}
+

@@ -1,0 +1,122 @@
+.slds-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.slds-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.span_title {
+    font-size: large;
+    font-weight: bold;
+}
+
+.slds-card__body {
+    flex: 1;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.slds-card__footer {
+    padding: 0;
+    margin: 0;
+}
+
+lightning-radio-group {
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+lightning-input {
+    display: flex;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+    opacity: 0.9;
+}
+
+ul {
+    max-height: 31.8vw;
+    overflow: auto;
+}
+
+li {
+    cursor: pointer;
+    transition: .5s background-color;
+}
+
+li:hover {
+    background-color: #f3f1f1;
+}
+
+.slds-avatar_large {
+    min-height: 3rem;
+    min-width: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.slds-box {
+    padding: 0.5rem;
+}
+
+.span_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.row_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price_span {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: smaller;
+    opacity: 0.85;
+}
+
+.price_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.company_span {
+    font-weight: bolder;
+    font-size: smaller;
+}
+
+.name_span {
+    font-weight: lighter;
+    font-size: small;
+}
+
+.empty_span {
+    font-weight: bold;
+    opacity: 0.7;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #0176D3FF;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #023a68;
+}
+
+

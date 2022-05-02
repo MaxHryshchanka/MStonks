@@ -1,6 +1,5 @@
 public with sharing class stockHelper {
     private static final String RANGE_SEPARATOR = ' - ';
-    private static final String TIMESERIES_INTERVAL = '1day';
 
     @AuraEnabled(cacheable=true)
     public static List<Stock__c> getStocks() {
@@ -18,14 +17,22 @@ public with sharing class stockHelper {
     }
 
     @AuraEnabled(cacheable=true)
-    public static List<Timeseries__b> getTimeseries(String stockId) {
+    public static Stock__c getStock(String stockId) {
+        if (stockId == null) {
+            return [SELECT Id, Logo__c, Name, Company_Name__c, Exchange__c, Close__c, Change__c, Change_Percent__c, Currency_Code__c FROM Stock__c LIMIT 1];
+        }
+        return [SELECT Id, Logo__c, Name, Company_Name__c, Exchange__c, Close__c, Change__c, Change_Percent__c, Currency_Code__c FROM Stock__c WHERE Id = :stockId LIMIT 1];
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Timeseries__b> getTimeseries(String stockId, String interval) {
         List<Timeseries__b> timeseries = new List<Timeseries__b>();
 
         for (Timeseries__b t : [
-                SELECT Moment__c, Close__c
+                SELECT Moment__c, High__c, Close__c, Open__c, Low__c, Volume__c
                 FROM Timeseries__b
-                WHERE Stock__c = :stockId AND Interval__c = :TIMESERIES_INTERVAL
-                LIMIT 30
+                WHERE Stock__c = :stockId AND Interval__c = :interval
+                LIMIT 100
         ]) {
             timeseries.add(t);
         }

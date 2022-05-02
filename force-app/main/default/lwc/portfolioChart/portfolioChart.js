@@ -241,15 +241,19 @@ export default class PortfolioChart extends LightningElement {
     }
 
     handleIntervalChange(event) {
-        this.isLoaded = false;
-        this.chart.destroy();
+        this.destroyChart();
         this.intervalValue = event.detail.value;
     }
 
     handleTypeChange(event) {
-        this.isLoaded = false;
-        this.chart.destroy();
+        this.destroyChart();
         this.typeValue = event.detail.value;
         this.buildChart();
+    }
+
+    @api
+    destroyChart() {
+        this.isLoaded = false;
+        this.chart.destroy();
     }
 }

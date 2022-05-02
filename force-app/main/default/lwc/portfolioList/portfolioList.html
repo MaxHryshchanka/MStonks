@@ -1,0 +1,62 @@
+<template>
+    <div class="slds-card">
+        <!-- Header -->
+        <div class="slds-card__header">
+            <div>
+                <span class="slds-avatar slds-avatar_large">
+                    <span class="slds-icon_container slds-icon-standard-account">
+                        <svg class="slds-icon" aria-hidden="true">
+                            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#price_books"></use>
+                        </svg>
+                    </span>
+                </span>
+                <span class="span_title slds-p-left_small">
+                    Stock List
+                </span>
+            </div>
+            <lightning-button disabled={isDisabled} variant="brand-outline" label="Table View"></lightning-button>
+        </div>
+        <!-- Body -->
+        <div class="slds-card__body">
+            <lightning-input type="search" placeholder="Enter Symbol or Name" onchange={handleInputChange}></lightning-input>
+            <!-- Spinner -->
+            <template if:false={isLoaded}>
+                <div>
+                    <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </template>
+            <!-- Stock List -->
+            <template if:true={isLoaded}>
+                <ul class="slds-border_top">
+                    <template for:each={stocks} for:item="stock">
+                        <li key={stock.Id} data-id={stock.Id} onclick={handleClick} class="row_container slds-box  slds-m-around_xx-small">
+                            <div class="row_container">
+                            <span class="slds-avatar slds-avatar_large">
+                                <img alt={stock.Name} src={stock.Logo__c} title={stock.Name} />
+                            </span>
+                                <div class="span_container slds-p-left_small">
+                                    <span class="company_span">{stock.Company_Name__c}</span>
+                                    <span class="name_span">{stock.Name}</span>
+                                </div>
+                            </div>
+                            <span class="price_span slds-p-left_small">{stock.Close__c} {stock.Currency_Code__c}</span>
+                        </li>
+                    </template>
+                </ul>
+                <!-- Empty Filter -->
+                <template if:false={isOneActive}>
+                    <span class="empty_span slds-p-around_medium">No results found</span>
+                </template>
+            </template>
+        </div>
+        <!-- Footer -->
+        <div class="slds-card__footer">
+            <lightning-radio-group
+                    options={sortOptions}
+                    value={sortValue}
+                    disabled={isDisabled}
+                    type="button">
+            </lightning-radio-group>
+        </div>
+    </div>
+</template>

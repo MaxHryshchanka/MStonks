@@ -1,0 +1,13 @@
+<template>
+    <template if:true={isLoaded}>
+        <div class="portfolio_container">
+            <c-portfolio-list onstockchange={handleStockChange} class="slds-p-around_xx-small"></c-portfolio-list>
+            <c-portfolio-chart is-loaded={loaded} class="slds-p-around_xx-small" stock={stock}></c-portfolio-chart>
+        </div>
+    </template>
+    <template if:false={isLoaded}>
+        <div class="spinner_container">
+            <lightning-spinner variant="brand" size="medium"></lightning-spinner>
+        </div>
+    </template>
+</template>

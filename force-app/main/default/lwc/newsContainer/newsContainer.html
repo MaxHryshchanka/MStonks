@@ -4,7 +4,7 @@
             <!-- Head News Cards -->
             <div class="slds-grid">
                 <template for:each={headNews} for:item="headItem">
-                    <ul key={headItem.Id} class="slds-col slds-size_1-of-5 slds-p-around_x-small">
+                    <ul key={headItem.Id} class="col-head slds-col slds-size_1-of-5 slds-p-around_x-small">
                         <c-news-head-item news={headItem}></c-news-head-item>
                     </ul>
                 </template>
@@ -28,7 +28,7 @@
                     </template>
                     <template if:true={isLoadingNew}>
                         <div class="spinner_container">
-                            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+                            <lightning-spinner variant="brand" alternative-text="Loading" size="small"></lightning-spinner>
                         </div>
                     </template>
                 </div>

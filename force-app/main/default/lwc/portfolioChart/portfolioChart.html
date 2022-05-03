@@ -20,7 +20,7 @@
             <div class="price_container">
                 <span class="span_company_name color__brand">{stockPrice}</span>
                 <div class="change_container">
-                    <span>{stockChange}</span>
+                    <span>{stockChange}$</span>
                     <span class="slds-m-left_xx-small">{stockChangePercent}</span>
                     <!-- Icons Up/Down -->
                     <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-m-left_xx-small">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="button_container">
-                <lightning-button class="slds-p-right_xx-small" variant="brand-outline" label="History" disabled={isDisabled}></lightning-button>
+                <lightning-button class="slds-p-right_xx-small" variant="brand-outline" label="History" disabled={isDisabled} onclick={handleHistoryClick}></lightning-button>
                 <lightning-button variant="brand" label="Subscribe" disabled={isDisabled}></lightning-button>
             </div>
         </div>
@@ -64,4 +64,8 @@
             </lightning-radio-group>
         </div>
     </div>
+    <!-- History Modal -->
+    <template if:true={isShowModal}>
+        <c-portfolio-history onclosemodal={handleCloseModal} timeseries={data} interval={intervalValue} ticker={stock.Name}></c-portfolio-history>
+    </template>
 </template>

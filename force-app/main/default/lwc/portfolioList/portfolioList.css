@@ -119,4 +119,16 @@ li:hover {
     background: #023a68;
 }
 
+@media screen and (max-width: 1200px) {
+    .spinner_container {
+        height: 7rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    ul {
+        max-height: 40vh;
+    }
+}
+
 

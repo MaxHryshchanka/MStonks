@@ -9,6 +9,7 @@ export default class PortfolioList extends LightningElement {
     data;
     stocks;
     isLoaded;
+    isShowModal;
     isOneActive;
 
     get isDisabled() {
@@ -35,6 +36,19 @@ export default class PortfolioList extends LightningElement {
 
     handleClick(event) {
         this.dispatchEvent(new CustomEvent('stockchange', { detail: event.currentTarget.dataset.id }));
+    }
+
+    handleModalClick() {
+        this.isShowModal = true;
+    }
+
+    handleCloseModal() {
+        this.isShowModal = false;
+    }
+
+    handleShowStock(event) {
+        this.dispatchEvent(new CustomEvent('stockchange', { detail: event.detail }));
+        this.handleCloseModal();
     }
 
     handleInputChange(event) {

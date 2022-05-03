@@ -6,7 +6,7 @@ public with sharing class stockHelper {
         List<Stock__c> stocks = new List<Stock__c>();
 
         for (Stock__c s : [
-                SELECT Id, Logo__c, Company_Name__c, Name, Exchange__c, Close__c, Currency_Code__c, Change__c, Change_Percent__c, Open__c, Volume__c, Day_Range__c, Close_Previous__c, Volume_Average__c, Weeks_Range__c
+                SELECT Id, LastModifiedDate, Logo__c, Company_Name__c, Name, Exchange__c, Close__c, Currency_Code__c, Change__c, Change_Percent__c, Open__c, Volume__c, Day_Range__c, Close_Previous__c, Volume_Average__c, Weeks_Range__c
                 FROM Stock__c
                 LIMIT 20
         ]) {
@@ -22,22 +22,6 @@ public with sharing class stockHelper {
             return [SELECT Id, Logo__c, Name, Company_Name__c, Exchange__c, Close__c, Change__c, Change_Percent__c, Currency_Code__c FROM Stock__c LIMIT 1];
         }
         return [SELECT Id, Logo__c, Name, Company_Name__c, Exchange__c, Close__c, Change__c, Change_Percent__c, Currency_Code__c FROM Stock__c WHERE Id = :stockId LIMIT 1];
-    }
-
-    @AuraEnabled(cacheable=true)
-    public static List<Timeseries__b> getTimeseries(String stockId, String interval) {
-        List<Timeseries__b> timeseries = new List<Timeseries__b>();
-
-        for (Timeseries__b t : [
-                SELECT Moment__c, High__c, Close__c, Open__c, Low__c, Volume__c
-                FROM Timeseries__b
-                WHERE Stock__c = :stockId AND Interval__c = :interval
-                LIMIT 100
-        ]) {
-            timeseries.add(t);
-        }
-
-        return timeseries;
     }
 
     private static List<Stock__c> scaleStocks(List<Stock__c> stocks) {

@@ -1,5 +1,5 @@
 import {LightningElement, api, track, wire} from 'lwc';
-import getTimeseries from '@salesforce/apex/stockHelper.getTimeseries';
+import getTimeseries from '@salesforce/apex/timeseriesHelper.getPortfolioTimeseries';
 import { getConfigPortfolioCandleChart, getConfigPortfolioVolumeChart, getConfigPortfolioMountainChart } from 'c/chartHelper'
 
 const SPLIT_LENGTH = 50;
@@ -13,6 +13,7 @@ export default class PortfolioChart extends LightningElement {
     @track preData;
     chart;
     isLoaded;
+    isShowModal;
     intervalValue = INTERVAL;
     typeValue = TYPE;
 
@@ -255,5 +256,13 @@ export default class PortfolioChart extends LightningElement {
     destroyChart() {
         this.isLoaded = false;
         this.chart.destroy();
+    }
+
+    handleHistoryClick() {
+        this.isShowModal = true;
+    }
+
+    handleCloseModal() {
+        this.isShowModal = false;
     }
 }

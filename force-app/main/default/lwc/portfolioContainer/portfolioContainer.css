@@ -18,9 +18,16 @@ c-portfolio-chart {
     flex: 3;
 }
 
+@media screen and (max-width: 1200px) {
+    .portfolio_container {
+        flex-direction: column;
+        padding-bottom: 2.75rem;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .portfolio_container {
         padding-top: 1rem;
-        flex-direction: column;
+        padding-bottom: 0;
     }
 }

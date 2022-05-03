@@ -7,7 +7,6 @@
 .slds-card {
     min-height: 20rem;
     transition: all .2s ease-in-out;
-    cursor: pointer;
 }
 .slds-card:hover {
     transform: scale(1.02);

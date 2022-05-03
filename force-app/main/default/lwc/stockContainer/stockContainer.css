@@ -23,3 +23,10 @@
 .empty_container span {
     text-align: center;
 }
+
+@media screen and (max-width: 1024px) {
+    .stock_container {
+        padding-top: 1.5rem;
+        padding-bottom: 0.25rem;
+    }
+}

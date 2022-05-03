@@ -1,6 +1,6 @@
 import {LightningElement, api, track} from 'lwc';
 import { getConfigStockChart, DAY_LABELS } from 'c/chartHelper'
-import getTimeseries from '@salesforce/apex/stockHelper.getTimeseries'
+import getTimeseries from '@salesforce/apex/timeseriesHelper.getPortfolioTimeseries'
 
 export default class StockItem extends LightningElement {
     @api stock;
@@ -49,7 +49,7 @@ export default class StockItem extends LightningElement {
 
     renderedCallback() {
         if (!this.loaded && Object.keys(this.stock).length !== 0) {
-            getTimeseries({ stockId: this.stock.Id })
+            getTimeseries({ stockId: this.stock.Id, interval: '1day'})
                 .then((result) => {
                     this.buildChart(result.slice(-5));
                 })

@@ -6,7 +6,7 @@ export default class HomeItem extends NavigationMixin(LightningElement) {
     @api item;
 
     get svgLink() {
-        return '/assets/icons/utility-sprite/svg/symbols.svg#' + this.item.svg;
+        return this.item.svg;
     }
 
     get pageReference() {

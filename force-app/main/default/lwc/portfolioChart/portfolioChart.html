@@ -24,14 +24,12 @@
                     <span class="slds-m-left_xx-small">{stockChangePercent}</span>
                     <!-- Icons Up/Down -->
                     <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-m-left_xx-small">
-                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
-                            <template if:true={ifStockPositive}>
-                                <use class="color__brand" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#up"></use>
-                            </template>
-                            <template if:false={ifStockPositive}>
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                            </template>
-                        </svg>
+                        <template if:true={ifStockPositive}>
+                            <lightning-icon class="color__brand" icon-name="utility:up" alternative-text="▲" size="x-small"></lightning-icon>
+                        </template>
+                        <template if:false={ifStockPositive}>
+                            <lightning-icon icon-name="utility:down" alternative-text="▼" size="x-small"></lightning-icon>
+                        </template>
                     </span>
                 </div>
             </div>

@@ -36,11 +36,6 @@
     font-size: x-large;
 }
 
-.tile_container {
-    display: flex;
-    justify-content: space-around;
-}
-
 c-home-item {
     flex: 1;
 }

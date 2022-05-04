@@ -1,0 +1,65 @@
+<template>
+    <div class="slds-card">
+        <!-- Header -->
+        <div class="slds-card__header">
+            <!-- Icon + Title -->
+            <div class="title_container slds-p-around_xx-small">
+                <span class="slds-avatar slds-avatar_large">
+                    <span class="slds-icon_container slds-icon-standard-account">
+                        <lightning-icon class="color__brand" icon-name="standard:calculated_insights" size="large"></lightning-icon>
+                    </span>
+                </span>
+                <span class="text_header slds-p-left_small">
+                    Fibonacci Calculator
+                </span>
+            </div>
+            <!-- Price Movement Radio Button Group -->
+            <lightning-radio-group
+                    class="slds-p-around_xx-small"
+                    name="radioGroup"
+                    options={priceMovementOptions}
+                    value={priceMovementValue}
+                    onchange={handleRadioChange}
+                    type="button">
+            </lightning-radio-group>
+        </div>
+        <!-- Body -->
+        <div class="slds-card__body slds-card__body_inner slds-grid slds-wrap slds-grid_align-space">
+            <lightning-input class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_xx-small" type="number" step="0.01" maxlength="13" name="high" label="Max Price" placeholder="Enter value..."></lightning-input>
+            <lightning-input class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_xx-small" type="number" step="0.01" maxlength="13" name="low" label="Min Price" placeholder="Enter value..."></lightning-input>
+            <lightning-input class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_xx-small" type="number" step="0.01" maxlength="13" name="custom" label="Custom Price" placeholder="Enter value..."></lightning-input>
+            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_xx-small slds-align_absolute-center">
+                <lightning-button variant="brand" label="Calculate" onclick={handleButtonClick}></lightning-button>
+            </div>
+            <!-- Retracements Table -->
+            <lightning-datatable
+                    class="slds-col slds-small-size_1-of-1 slds-medium-size_5-of-12 slds-box slds-m-top_xx-small"
+                    key-field="id"
+                    data={retracementsData}
+                    columns={retracementsColumns}
+                    hide-checkbox-column="true">
+            </lightning-datatable>
+            <!-- Extension Table -->
+            <lightning-datatable
+                    class="slds-col slds-small-size_1-of-1 slds-medium-size_5-of-12 slds-box slds-m-top_xx-small"
+                    key-field="id"
+                    data={extensionsData}
+                    columns={extensionsColumns}
+                    hide-checkbox-column="true">
+            </lightning-datatable>
+        </div>
+        <!-- Footer -->
+        <div class="slds-card__footer">
+            <a href="https://www.investopedia.com/terms/f/fibonacciextensions.asp" target="_blank" rel="noopener noreferrer">
+                <span class="slds-icon_container slds-icon-utility-announcement slds-current-color">
+                    <svg class="slds-icon slds-icon_x-small icon_footer" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                    </svg>
+                </span>
+                <span class="slds-p-left_xx-small">
+                    Need some help with Fibonacci Retracements and Extensions?
+                </span>
+            </a>
+        </div>
+    </div>
+</template>

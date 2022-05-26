@@ -25,7 +25,3 @@
 lightning-spinner {
     margin-bottom: 2rem;
 }
-
-lightning-icon:hover {
-    --sds-c-icon-color-foreground-default: #005FB2;
-}

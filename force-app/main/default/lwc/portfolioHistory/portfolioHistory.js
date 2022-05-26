@@ -45,7 +45,7 @@ export default class PortfolioHistory extends LightningElement {
             { label: 'Low', fieldName: 'low', type: 'currency', typeAttributes: { currencyCode: 'USD', step: '0.01' }, sortable: true, cellAttributes: { alignment: 'right' }},
             { label: 'Change', fieldName: 'change', type: 'currency', typeAttributes: { currencyCode: 'USD', step: '0.01' }, sortable: true, cellAttributes: { alignment: 'right' }},
             { label: 'Change (%)', fieldName: 'change_percent', type: 'percent', typeAttributes: { step: '0.00001', minimumFractionDigits: '2', maximumFractionDigits: '2'}, sortable: true, cellAttributes: { alignment: 'right' }},
-            { label: 'Volume (M)', fieldName: 'volume', type: 'number', sortable: true, cellAttributes: { alignment: 'right' }}
+            { label: 'Volume (M)', fieldName: 'volume', type: 'number', sortable: true, cellAttributes: { alignment: 'center' }}
         ];
     }
 

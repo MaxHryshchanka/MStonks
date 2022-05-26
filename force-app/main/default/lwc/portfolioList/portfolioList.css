@@ -22,11 +22,6 @@
     flex-direction: column;
 }
 
-.slds-card__footer {
-    padding: 0;
-    margin: 0;
-}
-
 lightning-radio-group {
     margin-bottom: 0.75rem;
     margin-top: 0.75rem;
@@ -40,7 +35,7 @@ lightning-input {
 }
 
 ul {
-    max-height: 31.8vw;
+    max-height: 34.8vw;
     overflow: auto;
 }
 

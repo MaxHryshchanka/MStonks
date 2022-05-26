@@ -13,7 +13,8 @@ export default class PortfolioChart extends LightningElement {
     @track preData;
     chart;
     isLoaded;
-    isShowModal;
+    isShowHistory;
+    isShowAnalysis;
     intervalValue = INTERVAL;
     typeValue = TYPE;
 
@@ -259,10 +260,18 @@ export default class PortfolioChart extends LightningElement {
     }
 
     handleHistoryClick() {
-        this.isShowModal = true;
+        this.isShowHistory = true;
     }
 
-    handleCloseModal() {
-        this.isShowModal = false;
+    handleCloseHistory() {
+        this.isShowHistory = false;
+    }
+
+    handleAnalysisClick() {
+        this.isShowAnalysis = true;
+    }
+
+    handleCloseAnalysis() {
+        this.isShowAnalysis = false;
     }
 }

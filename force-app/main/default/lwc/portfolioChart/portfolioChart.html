@@ -35,7 +35,7 @@
             </div>
             <div class="button_container">
                 <lightning-button class="slds-p-right_xx-small" variant="brand-outline" label="History" disabled={isDisabled} onclick={handleHistoryClick}></lightning-button>
-                <lightning-button variant="brand" label="Subscribe" disabled={isDisabled}></lightning-button>
+                <lightning-button variant="brand" label="Analysis" disabled={isDisabled} onclick={handleAnalysisClick}></lightning-button>
             </div>
         </div>
         <!-- Body -->
@@ -63,7 +63,10 @@
         </div>
     </div>
     <!-- History Modal -->
-    <template if:true={isShowModal}>
-        <c-portfolio-history onclosemodal={handleCloseModal} timeseries={data} interval={intervalValue} ticker={stock.Name}></c-portfolio-history>
+    <template if:true={isShowHistory}>
+        <c-portfolio-history onclosemodal={handleCloseHistory} timeseries={data} interval={intervalValue} ticker={stock.Name}></c-portfolio-history>
+    </template>
+    <template if:true={isShowAnalysis}>
+        <c-index-modal onclosemodal={handleCloseAnalysis} stock-id={stock.Id} ticker={stock.Name}></c-index-modal>
     </template>
 </template>

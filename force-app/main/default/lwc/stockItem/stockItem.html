@@ -1,0 +1,70 @@
+<template>
+    <div class="slds-card" onclick={handleStockClick}>
+        <!-- Header -->
+        <div class="slds-card__header slds-grid slds-grid_vertical">
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                    <div class="slds-col">
+                    <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                        <img alt={stock.Name} src={stock.Logo} title={stock.Name} />
+                    </span>
+                    </div>
+                    <div class="slds-col slds-p-left_small">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col slds-text-heading_small text__bold">
+                                {stock.CompanyName}
+                            </div>
+                            <div class="slds-col slds-text-body_small">
+                                {stock.Name} - {stock.Exchange}.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-p-top_small">
+                <div class="slds-grid slds-grid slds-grid_align-spread">
+                    <div class="slds-col slds-text-body_regular text__bold color__brand">
+                        {stock.Close} {stock.CurrencyCode}
+                    </div>
+                    <div class="slds-col slds-text-body_regular text__bold flex__container">
+                        <template if:true={isStockInit}>
+                            {stockChange}$ {stockChangePercent}
+                            <!-- Icons Up/Down -->
+                            <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-m-left_xx-small">
+                                <template if:true={ifStockPositive}>
+                                    <lightning-icon class="color__brand" icon-name="utility:up" alternative-text="▲" size="x-small"></lightning-icon>
+                                </template>
+                                <template if:false={ifStockPositive}>
+                                    <lightning-icon icon-name="utility:down" alternative-text="▼" size="x-small"></lightning-icon>
+                                </template>
+                            </span>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="slds-card__footer slds-grid slds-wrap">
+            <!-- Grid -->
+            <template for:each={columns} for:item="column">
+                <div key={column.Id} class="slds-col slds-size_1-of-2 slds-p-around_xx-small">
+                    <div class="slds-grid slds-grid_vertical">
+                        <div class="slds-col slds-text-body_small">
+                            {column.label}
+                        </div>
+                        <div class="slds-col slds-text-body_small text__bold">
+                            {column.value}
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <!-- Chart -->
+            <canvas></canvas>
+            <hr>
+        </footer>
+        <!-- Spinner -->
+        <template if:false={loaded}>
+            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+    </div>
+</template>

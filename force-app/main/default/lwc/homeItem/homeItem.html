@@ -1,0 +1,11 @@
+<template>
+    <div class="tile slds-p-bottom_medium" onclick={handleClick}>
+        <div class="text_container slds-p-bottom_medium">
+            <span class="tile_span">{item.title}</span>
+            <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-p-top_small">
+                <lightning-icon icon-name={svgLink} size="large"></lightning-icon>
+            </span>
+            <p class="tile_p slds-p-top_x-small slds-p-right_large slds-p-left_large">{item.description}</p>
+        </div>
+    </div>
+</template>

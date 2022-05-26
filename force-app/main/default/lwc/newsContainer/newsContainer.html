@@ -1,0 +1,45 @@
+<template>
+    <template if:true={loaded}>
+        <div class="news_container slds-p-around_medium">
+            <!-- Head News Cards -->
+            <div class="slds-grid">
+                <template for:each={headNews} for:item="headItem">
+                    <ul key={headItem.Id} class="col-head slds-col slds-size_1-of-5 slds-p-around_x-small">
+                        <c-news-head-item news={headItem}></c-news-head-item>
+                    </ul>
+                </template>
+            </div>
+            <!-- Separator -->
+            <h2>
+                Breaking Business News
+            </h2>
+            <!-- Body News Cards -->
+            <div class="slds-grid slds-grid_vertical slds-p-left_large slds-p-right_large body_container" onscroll={handleScroll}>
+                <template for:each={bodyNews} for:item="bodyItem">
+                    <ul key={bodyItem.Id} class="slds-col slds-p-around_x-small">
+                        <c-news-body-item news={bodyItem}></c-news-body-item>
+                    </ul>
+                </template>
+            </div>
+            <template if:false={isAllNews}>
+                <div class="load_container slds-p-top_small">
+                    <template if:false={isLoadingNew}>
+                        <lightning-button variant="brand" label="Load More News" onclick={handleLoad}></lightning-button>
+                    </template>
+                    <template if:true={isLoadingNew}>
+                        <div class="spinner_container">
+                            <lightning-spinner variant="brand" alternative-text="Loading" size="small"></lightning-spinner>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </template>
+    <template if:false={loaded}>
+        <div style="min-height: 100vh">
+            <div style="position: fixed;top: 50%;left: 50%;">
+                <lightning-spinner variant="brand" alternative-text="Loading" size="large"></lightning-spinner>
+            </div>
+        </div>
+    </template>
+</template>

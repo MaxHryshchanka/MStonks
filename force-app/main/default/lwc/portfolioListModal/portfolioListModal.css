@@ -1,0 +1,27 @@
+.slds-backdrop {
+    z-index: 10001;
+}
+
+.slds-modal {
+    z-index: 10002;
+}
+
+.slds-modal__content {
+    min-height: 4rem;
+    padding: 0;
+}
+
+.slds-modal__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slds-modal__footer span {
+    font-weight: bold;
+    opacity: 0.75;
+}
+
+lightning-spinner {
+    margin-bottom: 2rem;
+}

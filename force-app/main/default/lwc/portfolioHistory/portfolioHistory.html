@@ -1,0 +1,36 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h1 class="slds-modal__title slds-hyphenate">Ticker History</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <template if:true={isLoaded}>
+                    <lightning-datatable
+                            key-field="id"
+                            data={data}
+                            columns={columns}
+                            hide-checkbox-column="true"
+                            default-sort-direction={defaultSortDirection}
+                            sorted-direction={sortDirection}
+                            sorted-by={sortedBy}
+                            onsort={onHandleSort}>
+                    </lightning-datatable>
+                </template>
+                <template if:false={isLoaded}>
+                    <lightning-spinner variant="brand" size="medium"></lightning-spinner>
+                </template>
+            </div>
+            <div class="slds-modal__footer">
+                <div>
+                    <span>Interval:</span>
+                    <span class="slds-p-left_xx-small">{convertedInterval}</span>
+                    <span class="slds-p-left_medium">Ticker:</span>
+                    <span class="slds-p-left_xx-small">{ticker}</span>
+                </div>
+                <lightning-button variant="brand" label="Close" onclick={handleClick}></lightning-button>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

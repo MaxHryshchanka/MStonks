@@ -1,0 +1,67 @@
+:host {
+    --sds-c-input-radius-border: .75rem;
+    --dxp-g-spacing-medium: 0.125rem;
+}
+
+.slds-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+lightning-radio-group {
+    margin: 0;
+}
+
+.slds-card__body {
+    margin: 0;
+}
+
+.title_container {
+    display: flex;
+    align-items: center;
+}
+
+.slds-form-element__label {
+    font-weight: normal;
+    opacity: 0.75;
+}
+
+.slds-radio_button-group {
+    display: flex;
+}
+
+.slds-radio_button, .slds-radio_button__label {
+    flex: 1;
+    text-align: center;
+}
+
+.text_header {
+    font-size: large;
+    font-weight: bold;
+    color: #005FB2;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.input_container lightning-input {
+    opacity: 0.75;
+}
+
+.slds-box {
+    padding: 0;
+    border-radius: .75rem;
+    overflow: hidden;
+}
+
+.canvas_container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}

@@ -1,0 +1,41 @@
+.banner_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 30rem;
+    margin-left: -1rem;
+    margin-right: -0.75rem;
+    box-shadow: 5px -3px 14px 12px rgb(0 0 0);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)), url("https://i.imgur.com/TxXmGMK.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner_container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner_span {
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 0 black;
+    text-align: center;
+}
+
+.span__title {
+    font-size: xxx-large;
+}
+
+.span__subtitle {
+    font-size: x-large;
+}
+
+c-home-item {
+    flex: 1;
+}

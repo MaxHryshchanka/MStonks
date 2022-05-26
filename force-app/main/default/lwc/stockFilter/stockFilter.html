@@ -1,0 +1,18 @@
+<template>
+    <div class="filter_container">
+        <div class="filter_pointer slds-p-right_x-small">
+            <span class="slds-icon_container slds-icon-utility-announcement slds-current-color">
+                <lightning-icon icon-name="utility:filterList" size="small"></lightning-icon>
+            </span>
+        </div>
+        <div class="filter_settings slds-p-around_medium">
+            <span>Stock Filter</span>
+            <!-- Search Bar -->
+            <lightning-input class="slds-p-top_xx-small" onchange={handleInputChange} type="search" placeholder="Search"></lightning-input>
+            <!-- Search Settings -->
+            <lightning-radio-group name="Volume" onchange={handleRadioChange} options={volumeOptions} value={value} type="button"></lightning-radio-group>
+            <lightning-radio-group name="Close" onchange={handleRadioChange} options={priceOptions} value={value} type="button"></lightning-radio-group>
+            <lightning-radio-group name="ChangePercent" onchange={handleRadioChange} options={percentOptions} value={value} type="button"></lightning-radio-group>
+        </div>
+    </div>
+</template>

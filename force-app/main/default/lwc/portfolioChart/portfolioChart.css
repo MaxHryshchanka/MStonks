@@ -1,0 +1,82 @@
+.slds-card__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+.slds-card__body {
+    width: 69.4vw;
+    height: 34.7vw;
+    margin-top: 0;
+}
+
+.slds-avatar {
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px;
+    min-height: 3rem;
+    min-width: 3rem;
+}
+
+.slds-card__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -2rem;
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.button_container {
+    display: flex;
+    align-items: center;
+}
+
+.header_container {
+    display: flex;
+}
+
+.span_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.price_container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.span_company_name {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.span_exchange {
+    font-size: small;
+    font-weight: lighter;
+}
+
+.color__brand {
+    color: #0176d3;
+}
+
+.change_container {
+    font-weight: bold;
+    opacity: 0.9;
+    font-size: small;
+}
+
+@media screen and (max-width: 1200px) {
+    .slds-card__body {
+        width: 90vw;
+        height: 45vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .slds-card__body {
+        width: 140vw;
+        height: 70vw;
+    }
+}
+

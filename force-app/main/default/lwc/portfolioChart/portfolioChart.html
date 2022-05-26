@@ -1,0 +1,72 @@
+<template>
+    <div class="slds-card slds-p-around_medium">
+        <!-- Spinner -->
+        <template if:false={isLoaded}>
+            <div>
+                <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <!-- Header -->
+        <div class="slds-card__header">
+            <div class="header_container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                    <img alt={stock.Name} src={stockLogo} title={stock.Name} />
+                </span>
+                <div class="span_container slds-p-left_small">
+                    <span class="span_company_name">{stockCompanyName}</span>
+                    <span class="span_exchange">{stock.Name} - {stockExchange}</span>
+                </div>
+            </div>
+            <div class="price_container">
+                <span class="span_company_name color__brand">{stockPrice}</span>
+                <div class="change_container">
+                    <span>{stockChange}$</span>
+                    <span class="slds-m-left_xx-small">{stockChangePercent}</span>
+                    <!-- Icons Up/Down -->
+                    <span class="slds-icon_container slds-icon-utility-announcement slds-current-color slds-m-left_xx-small">
+                        <template if:true={ifStockPositive}>
+                            <lightning-icon class="color__brand" icon-name="utility:up" alternative-text="▲" size="x-small"></lightning-icon>
+                        </template>
+                        <template if:false={ifStockPositive}>
+                            <lightning-icon icon-name="utility:down" alternative-text="▼" size="x-small"></lightning-icon>
+                        </template>
+                    </span>
+                </div>
+            </div>
+            <div class="button_container">
+                <lightning-button class="slds-p-right_xx-small" variant="brand-outline" label="History" disabled={isDisabled} onclick={handleHistoryClick}></lightning-button>
+                <lightning-button variant="brand" label="Analysis" disabled={isDisabled} onclick={handleAnalysisClick}></lightning-button>
+            </div>
+        </div>
+        <!-- Body -->
+        <div class="slds-card__body">
+            <canvas></canvas>
+        </div>
+        <!-- Footer -->
+        <div class="slds-card__footer radio_button_container">
+            <!-- Interval Radio Button Group -->
+            <lightning-radio-group
+                    options={intervalOptions}
+                    value={intervalValue}
+                    onchange={handleIntervalChange}
+                    disabled={isDisabled}
+                    type="button">
+            </lightning-radio-group>
+            <!-- Type Button Group -->
+            <lightning-radio-group
+                    options={typeOptions}
+                    value={typeValue}
+                    onchange={handleTypeChange}
+                    disabled={isDisabled}
+                    type="button">
+            </lightning-radio-group>
+        </div>
+    </div>
+    <!-- History Modal -->
+    <template if:true={isShowHistory}>
+        <c-portfolio-history onclosemodal={handleCloseHistory} timeseries={data} interval={intervalValue} ticker={stock.Name}></c-portfolio-history>
+    </template>
+    <template if:true={isShowAnalysis}>
+        <c-index-modal onclosemodal={handleCloseAnalysis} stock-id={stock.Id} ticker={stock.Name}></c-index-modal>
+    </template>
+</template>

@@ -1,0 +1,32 @@
+.stock_container {
+    padding-top: 3.5rem;
+    padding-bottom: 2.25rem;
+}
+
+.nonactive_container {
+    display: none;
+}
+
+.empty_container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+    opacity: 0.75;
+    font-weight: bold;
+    z-index: 10000;
+}
+
+.empty_container span {
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .stock_container {
+        padding-top: 1.5rem;
+        padding-bottom: 0.25rem;
+    }
+}

@@ -1,0 +1,14 @@
+<template>
+    <div class="forex_container">
+        <template if:true={isLoaded}>
+            <template for:each={forexItems} for:item="item">
+                <ul key={item.id} class="slds-p-around_small">
+                    <c-forex-item forex={item}></c-forex-item>
+                </ul>
+            </template>
+        </template>
+        <template if:false={isLoaded}>
+            <lightning-spinner variant="brand" size="small"></lightning-spinner>
+        </template>
+    </div>
+</template>

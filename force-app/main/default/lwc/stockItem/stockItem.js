@@ -30,7 +30,7 @@ export default class StockItem extends LightningElement {
     buildChart(data) {
         try {
             const context = this.template.querySelector('canvas').getContext('2d');
-            let gradient = context.createLinearGradient(0, 0, 0, 400);
+            let gradient = context.createLinearGradient(0, 0, 0, 300);
             gradient.addColorStop(0, 'rgb(155, 213, 255)');
             gradient.addColorStop(1, 'rgba(255, 255, 255, 0.1)');
 
@@ -57,5 +57,9 @@ export default class StockItem extends LightningElement {
                     console.log(error);
                 });
         }
+    }
+
+    handleStockClick() {
+        this.dispatchEvent(new CustomEvent('stockchange', { detail: { id: this.stock.Id, name: this.stock.Name} }));
     }
 }

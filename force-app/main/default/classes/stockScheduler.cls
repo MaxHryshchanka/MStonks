@@ -3,8 +3,8 @@ public class stockScheduler implements Schedulable {
     private final String JOB_NAME = 'Batch Stocks Update';
     private final List<String> STOCK_NAMES = new List<String>{
             'AAPL', 'MSFT', 'AMZN', 'TSLA',
-            'NVDA', 'V', 'MA', 'CRM',
-            'ORCL', 'MCD', 'ZM', 'SBUX',
+            'NVDA', 'V', 'GM', 'CRM',
+            'ORCL', 'MCD', 'RACE', 'SBUX',
             'AMD', 'NFLX', 'TWTR', 'DIS'
     };
 

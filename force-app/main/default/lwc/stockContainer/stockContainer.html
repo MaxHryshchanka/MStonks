@@ -2,7 +2,7 @@
     <div class="slds-grid slds-wrap slds-grid_align-space stock_container">
         <template for:each={stocks} for:item="stock">
             <ul key={stock.Id} data-name={stock.Name} data-company={stock.CompanyName} class="slds-col slds-p-around_small slds-small-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                <c-stock-item stock={stock}></c-stock-item>
+                <c-stock-item onstockchange={handleStockClick} stock={stock}></c-stock-item>
             </ul>
         </template>
     </div>
@@ -18,4 +18,7 @@
         </div>
     </template>
     <c-stock-filter onfilter={handleFilter}></c-stock-filter>
+    <template if:true={isShowModal}>
+        <c-index-modal onclosemodal={handleCloseAnalysis} stock-id={stockId} ticker={ticker}></c-index-modal>
+    </template>
 </template>

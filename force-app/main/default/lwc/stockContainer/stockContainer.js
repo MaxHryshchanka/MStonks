@@ -5,10 +5,13 @@ import getStocks from '@salesforce/apex/stockHelper.getStocks';
 
 export default class StockContainer extends LightningElement {
     @track stocks = [];
+    stockId;
+    ticker;
     data;
     amount;
     isChartJSInitialized = false;
     isOneActive = true;
+    isShowModal;
 
     @wire(getStocks)
     wiredStocks({ error, data }) {
@@ -106,5 +109,15 @@ export default class StockContainer extends LightningElement {
                     : a[field] - b[field]
             }
         });
+    }
+
+    handleCloseAnalysis() {
+        this.isShowModal = false;
+    }
+
+    handleStockClick(event) {
+        this.stockId = event.detail.id;
+        this.ticker = event.detail.name;
+        this.isShowModal = true;
     }
 }

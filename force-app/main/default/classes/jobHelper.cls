@@ -5,11 +5,14 @@ public with sharing class jobHelper {
     private static String CRON_TIMESERIES_JOB = '0 0 13 * * ?';
     private static String NAME_NEWS_JOB = 'Daily News Update';
     private static String CRON_NEWS_JOB = '0 0 14 * * ?';
+    private static String NAME_FOREX_JOB = 'Daily Forex Update';
+    private static String CRON_FOREX_JOB = '0 0 15 * * ?';
 
     public static void runJobs() {
         startStockJob();
         startTimeseriesJob();
         startNewsJob();
+        startForexJob();
     }
 
     private static void startStockJob() {
@@ -30,6 +33,13 @@ public with sharing class jobHelper {
         if (!checkIsJobRunning(NAME_NEWS_JOB)) {
             newsScheduler ns = new newsScheduler();
             String jobID = System.schedule(NAME_NEWS_JOB, CRON_NEWS_JOB, ns);
+        }
+    }
+
+    private static void startForexJob() {
+        if (!checkIsJobRunning(NAME_FOREX_JOB)) {
+            forexScheduler ns = new forexScheduler();
+            String jobID = System.schedule(NAME_FOREX_JOB, CRON_FOREX_JOB, ns);
         }
     }
 

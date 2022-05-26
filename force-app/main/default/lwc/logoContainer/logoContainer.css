@@ -1,0 +1,25 @@
+.logo_container {
+    padding-top: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -10px;
+}
+
+.logo_container span {
+    font-size: x-large;
+    font-weight: bold;
+    color: #0176d3;
+    opacity: 0.8;
+}
+
+.image_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.image_container img {
+    height: 125px;
+    width: 125px;
+}

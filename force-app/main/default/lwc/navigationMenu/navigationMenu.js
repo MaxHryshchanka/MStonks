@@ -3,6 +3,7 @@ import { CurrentPageReference } from 'lightning/navigation';
 
 import getNavigationMenuItems from '@salesforce/apex/NavigationMenuItemsController.getNavigationMenuItems';
 import isGuestUser from '@salesforce/user/isGuest';
+import basePath from "@salesforce/community/basePath";
 
 export default class navigationMenu extends LightningElement {
     @api menuName;
@@ -14,6 +15,22 @@ export default class navigationMenu extends LightningElement {
     lastScrollTop = 0;
     publishedState;
 
+    get isGuest() {
+        return isGuestUser;
+    }
+
+    get homeLink() {
+        return basePath + '/';
+    }
+
+    get logoutLink() {
+        const sitePrefix = basePath.replace(/\/s$/i, "");
+        return sitePrefix + "/secur/logout.jsp";
+    }
+
+    get loginLink() {
+        return basePath + '/login';
+    }
 
     @wire(getNavigationMenuItems, {
         menuName: '$menuName',

@@ -9,7 +9,7 @@ export default class HomeContainer extends NavigationMixin(LightningElement) {
                 title: 'Stocks & Quotes',
                 description: 'Get the latest stock information & quotes, data analysis, as well as a general overview of the market landscape from Nasdaq.',
                 svg: 'utility:trending',
-                url: '/portfolio'
+                url: '/charts'
             },
             {
                 title: 'News & Tips',

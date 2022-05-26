@@ -1,18 +1,28 @@
-# Salesforce DX Project: Next Steps
+# [Web application for Stock research & analysis "MaxStonks"](https://m-stonks-developer-edition.ap27.force.com/s/)
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+*Digital experience site (LWR) built on Salesforce platform with custom Lightning Web Components.*
 
-## How Do You Plan to Deploy Your Changes?
+## Features
+- [**Stocks page:**](https://m-stonks-developer-edition.ap27.force.com/s/stocks)
+  - Stock cards with filtration;
+  - Technical analysis: *RSI*, *Williams %R*, *STOCH*, *SMA*, *EMA*.
+- [**Charts page:**](https://m-stonks-developer-edition.ap27.force.com/s/charts)
+  - Stock list / table with sorting / filtration;
+  - Stock charts: *Candlestick*, *Volume*, *Mountain*;
+  - History data;
+  - Technical analysis.
+- [**News page:**](https://m-stonks-developer-edition.ap27.force.com/s/news)
+  - Actual news feed.
+- [**Tools page:**](https://m-stonks-developer-edition.ap27.force.com/s/tools)
+  - Fibonacci retracements and extensions calculator;
+  - Pivot point calculator.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+## Notes
+- Due to **Developer Edition** Salesforce Org license limitations please, don't register. Guest users have same functionality as Authorized users;
+- Due to free subscriptions on [**Twelve Api**](https://twelvedata.com/) and [**News Api**](https://newsapi.org/):
+  - Updates perform each day only once on *Stocks*, *Quotes*, *Exchange rates* and *News* records;
+  - Possible quote intervals are: *Month*, *Week*, *Day*;
+  - The amount of *Stocks* is only 16;
+  - The source of *News* is [**The Wall Street Journal**](https://www.wsj.com/).
+- For building charts, [**Chart.JS**](https://www.chartjs.org/) was used;
+- Don't take it seriously, it's just university project [*( ͡° ͜ʖ ͡°)*](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)

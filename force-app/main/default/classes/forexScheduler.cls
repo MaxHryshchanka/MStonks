@@ -10,7 +10,7 @@ public class forexScheduler implements Schedulable {
     };
 
     public void execute(SchedulableContext SC) {
-        stockBatch batch = new stockBatch(FOREX_NAMES, JOB_NAME, SCOPE_SIZE);
+        forexBatch batch = new forexBatch(FOREX_NAMES, JOB_NAME, SCOPE_SIZE);
         System.scheduleBatch(batch, JOB_NAME, 1, SCOPE_SIZE);
     }
 }
